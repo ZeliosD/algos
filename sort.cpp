@@ -12,7 +12,7 @@ using namespace std;
 \param [in] data The data set that will be searched
 \returns location of key if found or -1 if not found
 */
-vector<string> bubbleSort(auto data);//prototype
+void bubbleSort(auto data);//prototype
 
 
 int main()
@@ -40,13 +40,13 @@ int main()
        cout<<endl<<"No input received, quiting..."<<endl<<endl;
        exit(1);//nothing to do but quit program
    }
- 
-   cout<<endl<<"To end input type the #-character (followed by Enter)"<<endl<<endl;
 
-   inputs = bubbleSort(inputs);
+   /*inputs = bubbleSort(inputs);
    for (unsigned int i = 0; i<inputs.size(); i++) { 
      cout << inputs[i]<<endl;
-   }
+   }*/
+
+   bubbleSort(inputs);
    
 
    cout<<endl<<"Program \"sort it\" is now finished."<<endl<<endl;
@@ -54,9 +54,13 @@ int main()
    return 0;
 }
 
-vector<string> bubbleSort(auto data) {
+void bubbleSort(auto data) {
    int i = 0;
+   int passes = 0;
    do {
+      passes++;
+      if (passes%20000 == 0)
+         cout << "Passes: " << passes;
       i = 0;
       for(unsigned int j = 0; j<(data.size()-1); j++) {
          if(data[j]>data[j+1]){
@@ -65,7 +69,8 @@ vector<string> bubbleSort(auto data) {
          }
       }
    }while(i>0);
+   cout << "Final Amount of Passes: " << passes;
 
-   return data;
+   return;
 
 }
