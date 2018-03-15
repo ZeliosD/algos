@@ -58,9 +58,9 @@ void bubbleSort(auto data) {
    int i = 0;
    int passes = 0;
    do {
-      passes++;
+      
       if (passes%20000 == 0)
-         cout << "Passes: " << passes;
+         cout << "Passes: " << passes<<endl;
       i = 0;
       for(unsigned int j = 0; j<(data.size()-1); j++) {
          if(data[j]>data[j+1]){
@@ -68,6 +68,7 @@ void bubbleSort(auto data) {
             i++;
          }
       }
+      passes++;
    }while(i>0);
    cout << "Final Amount of Passes: " << passes;
 
